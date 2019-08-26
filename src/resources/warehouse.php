@@ -58,6 +58,63 @@ return array(
             ),
         ),
 
+
+        /**
+         *    getGoodsOutNote() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/goods-out-note/get.html
+         */
+        "getGoodsOutNote" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/order/{order_id}/goods-note/goods-out/{id}",
+            "summary" => "Get goods out note(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "order_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of order(s) to get the goods notes",
+                    "required" => false,
+                ),
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of goods out(s) to get",
+                    "required" => false,
+                ),
+
+            ),
+        ),
+
+        /**
+         *    saveGoodsOutNoteEvent() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/goods-out-note/post.html
+         */
+        "saveGoodsOutNoteEvent" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/goods-note/goods-out/{id}/event",
+            "summary" => "save goods out note(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of goods out(s) to get",
+                    "required" => true,
+                ),
+                "events" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "save goods out note event",
+                    "required" => true,
+                ),
+
+            ),
+        ),
+
     ),
 
     /*

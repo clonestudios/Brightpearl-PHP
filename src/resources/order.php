@@ -21,7 +21,7 @@ return array(
          */
         "getOrder" => array(
             "httpMethod" => "GET",
-            "uri" => "/{apiVersion}/{account_code}/order-service/order/{id}",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order/{id}?includeOptional={includeOptional}",
             "summary" => "Retrieve order(s) (https://www.brightpearl.com/developer/latest/order/order/get.html)",
             "responseModel" => "defaultJsonResponse",
             "parameters" => array(
@@ -31,6 +31,12 @@ return array(
                     "location" => "uri",
                     "description" => "Order id",
                     "required" => true,
+                ),
+                "includeOptional" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "optional parameters",
+                    "required" => false,
                 ),
 
             ),
@@ -347,92 +353,148 @@ return array(
          *    reference: https://www.brightpearl.com/developer/latest/order/order/search.html
          */
         "searchOrder" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order-search",
+            "summary" => "Retrieve order(s) (https://www.brightpearl.com/developer/latest/order/order/get.html)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
 
-            "columns" => array(
-                "type" => "array",
-                "location" => "uri",
-                "description" => "You may control the set of columns that are included in the results and the order in which they are presented. You may use the columns parameters and provide a comma separated list of column names. e.g. /contact-search?columns=contactId,firstName",
-                "required" => false,
+                "columns" => array(
+                    "type" => "array",
+                    "location" => "query",
+                    "description" => "You may control the set of columns that are included in the results and the order in which they are presented. You may use the columns parameters and provide a comma separated list of column names. e.g. /contact-search?columns=contactId,firstName",
+                    "required" => false,
+                ),
+
+                "sort" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "When you execute a resource, you may change the default sort order by setting a query parameter sort. The value of this parameter is a comma delimited list of 1-n column names with an optional sort direction separated by a pipe. e.g. /goods-out-note-search?sort=warehouseId,price|DESC",
+                    "required" => false,
+                ),
+
+                "pageSize" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "",
+                    "required" => false,
+                ),
+
+                "firstResult" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "",
+                    "required" => false,
+                ),
+
+                // filters
+
+                "customerRef" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "Order reference no.",
+                    "required" => false,
+                ),
+
+                "placedOn" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The date the order was placed.",
+                    "required" => false,
+                ),
+
+                "deliveryDate" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The date the delivery is set for.",
+                    "required" => false,
+                ),
+
+                "shippingMethodId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The ID of the Shipping Method.",
+                    "required" => false,
+                ),
+
+                "staffOwnerContactId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The ID of the Staff member who owns the Order.",
+                    "required" => false,
+                ),
+
+                "projectId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The ID of the project the Order is associated with.",
+                    "required" => false,
+                ),
+
+                "departmentId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The ID of the department the Order is associated with.",
+                    "required" => false,
+                ),
+
+                "leadSourceId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The ID of the lead source the Order is associated with.",
+                    "required" => false,
+                ),
+
+                "isClone" => array(
+                    "type" => "boolean",
+                    "location" => "query",
+                    "description" => "Whether the order is a clone or not.",
+                    "required" => false,
+                ),
             ),
+        ),
 
-            "sort" => array(
-                "type" => "string",
-                "location" => "uri",
-                "description" => "When you execute a resource, you may change the default sort order by setting a query parameter sort. The value of this parameter is a comma delimited list of 1-n column names with an optional sort direction separated by a pipe. e.g. /goods-out-note-search?sort=warehouseId,price|DESC",
-                "required" => false,
+        /**
+         *    saveOrderStatus() method
+         *
+         *    reference: https://www.brightpearl.com/developer/latest/order/order-status-update/put.html
+         */
+        "saveOrderStatus" => array(
+            "httpMethod" => "PUT",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order/{id}/status",
+            "summary" => "Retrieve order(s) (https://www.brightpearl.com/developer/latest/order/order-status-update/put.html)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Order id",
+                    "required" => true,
+                ),
+                "orderStatusId" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "Status id",
+                    "required" => true,
+                ),
+                "orderNote" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "text" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "isPublic" => array(
+                        "type" => "boolean",
+                        "location" => "json",
+                    ),
+                    "fileId" => array(
+                        "type" => "int",
+                        "location" => "json",
+                    )
+                ),
             ),
-
-            "pageSize" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "",
-                "required" => false,
-            ),
-
-            "firstResult" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "",
-                "required" => false,
-            ),
-
-            // filters
-            "placedOn" => array(
-                "type" => "string",
-                "location" => "uri",
-                "description" => "The date the order was placed.",
-                "required" => false,
-            ),
-
-            "deliveryDate" => array(
-                "type" => "string",
-                "location" => "uri",
-                "description" => "The date the delivery is set for.",
-                "required" => false,
-            ),
-
-            "shippingMethodId" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "The ID of the Shipping Method.",
-                "required" => false,
-            ),
-
-            "staffOwnerContactId" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "The ID of the Staff member who owns the Order.",
-                "required" => false,
-            ),
-
-            "projectId" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "The ID of the project the Order is associated with.",
-                "required" => false,
-            ),
-
-            "departmentId" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "The ID of the department the Order is associated with.",
-                "required" => false,
-            ),
-
-            "leadSourceId" => array(
-                "type" => "integer",
-                "location" => "uri",
-                "description" => "The ID of the lead source the Order is associated with.",
-                "required" => false,
-            ),
-
-            "isClone" => array(
-                "type" => "boolean",
-                "location" => "uri",
-                "description" => "Whether the order is a clone or not.",
-                "required" => false,
-            ),
-
         ),
 
     ),

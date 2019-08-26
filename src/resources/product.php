@@ -344,6 +344,12 @@ return array(
                     "description" => "This is the name of the Brightpearl Sales Channel(s) you're looking for",
                     "required" => false,
                 ),
+                "SKU" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "Sku of the product you are searching for",
+                    "required" => false,
+                ),
 
                 "pageSize" => array(
                     "type" => "integer",
@@ -520,6 +526,5 @@ return array(
     |
     */
 
-    "models" => array(
-    ),
+    "models" => array(),
 );
