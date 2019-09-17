@@ -368,6 +368,28 @@ return array(
         ),
 
         /**
+         *    getContactCustomFields() method
+         *
+         *    reference: http://api-docs.brightpearl.com/contact/custom-field/get.html
+         */
+        "getContactCustomFields" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/contact-service/contact/{id}/custom-field",
+            "summary" => "Retrieve Contact Address(es)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "contact id",
+                    "required" => true,
+                ),
+
+            ),
+        ),
+
+        /**
          *    postContactAddress() method
          *
          *    reference: https://www.brightpearl.com/developer/latest/contact/postal-address/post.html

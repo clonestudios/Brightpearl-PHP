@@ -58,6 +58,28 @@ return array(
             ),
         ),
 
+        /**
+         *    getWarehouseDefaultLocation() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/default-location/get.html
+         */
+        "getWarehouseDefaultLocation" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/warehouse/{id}/location/default",
+            "summary" => "Get warehouse(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of warehouse(s) to get",
+                    "required" => false,
+                ),
+
+            ),
+        ),
+
 
         /**
          *    getGoodsOutNote() method
@@ -112,6 +134,34 @@ return array(
                     "required" => true,
                 ),
 
+            ),
+        ),
+
+        /**
+         *    stockCorrections() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/stock-correction/post.html
+         */
+        "saveStockCorrections" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/warehouse/{warehouse_id}/stock-correction",
+            "summary" => "save stock correction",
+            "responseModel" => "defaultJsonResponse",
+
+            "parameters" => array(
+
+                "warehouse_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "warehouse",
+                    "required" => true,
+                ),
+                "corrections" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "corrections",
+                    "required" => true,
+                ),
             ),
         ),
 

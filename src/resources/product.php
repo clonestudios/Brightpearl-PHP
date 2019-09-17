@@ -397,11 +397,17 @@ return array(
          */
         "getProductPrice" => array(
             "httpMethod" => "GET",
-            "uri" => "/{apiVersion}/{account_code}/product-service/product-price/{id}",
+            "uri" => "/{apiVersion}/{account_code}/product-service/product-price/{product_id}/price-list/{id}",
             "summary" => "Get product price(s)",
             "responseModel" => "defaultJsonResponse",
             "parameters" => array(
 
+                "product_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "This is the id of the product(s)",
+                    "required" => true,
+                ),
                 "id" => array(
                     "type" => "string",
                     "location" => "uri",
