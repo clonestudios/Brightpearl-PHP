@@ -160,7 +160,7 @@ class Client
      *
      * @return \GuzzleHttp\Client
      */
-    private function getBaseClient()
+    public function getBaseClient()
     {
         return $this->baseClient ?: $this->baseClient = $this->loadBaseClient();
     }
