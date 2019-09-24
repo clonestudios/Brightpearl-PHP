@@ -390,6 +390,32 @@ return array(
         ),
 
         /**
+         *    saveContactCustomFields() method
+         *
+         *    reference: http://api-docs.brightpearl.com/contact/custom-field/patch.html
+         */
+        "saveContactCustomFields" => array(
+            "httpMethod" => "PATCH",
+            "uri" => "/{apiVersion}/{account_code}/contact-service/contact/{id}/custom-field",
+            "summary" => "Save Contact custom fields",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "contact id",
+                    "required" => true,
+                ),
+                "body" => array(
+                    "type" => "string",
+                    "location" => "body",
+                    "description" => "body",
+                    "required" => true,
+                ),
+            ),
+        ),
+
+        /**
          *    postContactAddress() method
          *
          *    reference: https://www.brightpearl.com/developer/latest/contact/postal-address/post.html
