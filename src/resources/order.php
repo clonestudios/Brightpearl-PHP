@@ -497,6 +497,50 @@ return array(
             ),
         ),
 
+        /**
+         *    saveOrderNote() method
+         *
+         *    reference: http://api-docs.brightpearl.com/order/order-note/post.html
+         */
+        "saveOrderNote" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order/{id}/note",
+            "summary" => "Save order note(s) (http://api-docs.brightpearl.com/order/order-note/post.html)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Order id",
+                    "required" => true,
+                ),
+                "text" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "text",
+                    "required" => true,
+                ),
+                "fileId" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "file id",
+                    "required" => false,
+                ),
+                "isPublic" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "is public",
+                    "required" => false,
+                ),
+                "addedOn" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "Added on",
+                    "required" => false,
+                ),
+            ),
+        ),
     ),
 
     /*
