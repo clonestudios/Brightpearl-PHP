@@ -165,6 +165,35 @@ return array(
             ),
         ),
 
+
+        /**
+         *    saveGoodsInNote() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/goods-in-note/post.html
+         */
+        "saveGoodsInNote" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/order/{order_id}/goods-note/goods-in",
+            "summary" => "save goods in note",
+            "responseModel" => "defaultJsonResponse",
+
+            "parameters" => array(
+
+                "order_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "order id",
+                    "required" => true,
+                ),
+                "body" => array(
+                    "type" => "string",
+                    "location" => "body",
+                    "description" => "body",
+                    "required" => true,
+                ),
+            ),
+        ),
+
     ),
 
     /*
@@ -177,7 +206,5 @@ return array(
     |
     */
 
-    "models" => array(
-
-    ),
+    "models" => array(),
 );
