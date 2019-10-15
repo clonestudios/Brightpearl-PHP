@@ -112,6 +112,33 @@ return array(
         /**
          *    saveGoodsOutNoteEvent() method
          *
+         *    reference: http://api-docs.brightpearl.com/warehouse/goods-out-note/put.html
+         */
+        "saveGoodsOutNote" => array(
+            "httpMethod" => "PUT",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/goods-note/goods-out/{id}",
+            "summary" => "save goods out note(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of goods out(s) to get",
+                    "required" => true,
+                ),
+                "body" => array(
+                    "type" => "string",
+                    "location" => "body",
+                    "description" => "save goods out note",
+                    "required" => true,
+                ),
+
+            ),
+        ),
+        /**
+         *    saveGoodsOutNoteEvent() method
+         *
          *    reference: http://api-docs.brightpearl.com/warehouse/goods-out-note/post.html
          */
         "saveGoodsOutNoteEvent" => array(
