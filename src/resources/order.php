@@ -348,6 +348,41 @@ return array(
         ),
 
         /**
+         *    patchOrderRow() method
+         *
+         *    reference: http://api-docs.brightpearl.com/order/order-row/patch.html
+         */
+        "patchOrderRow" => array(
+            "httpMethod" => "PATCH",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order/{orderId}/row/{rowId}",
+            "summary" => "Updated order row",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "orderId" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Order id",
+                    "required" => true,
+                ),
+
+                "rowId" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Order row id",
+                    "required" => true,
+                ),
+
+                "body" => array(
+                    "type" => "string",
+                    "location" => "body",
+                    "description" => "body string",
+                    "required" => true,
+                ),
+            ),
+        ),
+
+        /**
          *    searchOrder() method
          *
          *    reference: https://www.brightpearl.com/developer/latest/order/order/search.html
@@ -538,6 +573,54 @@ return array(
                     "location" => "json",
                     "description" => "Added on",
                     "required" => false,
+                ),
+            ),
+        ),
+
+        /**
+         *    getOrderCustomFields() method
+         *
+         *    reference: http://api-docs.brightpearl.com/order/order-customfields/get.html
+         */
+        "getOrderCustomFields" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order/{id}/custom-field",
+            "summary" => "Retrieve order custom fields",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "order id",
+                    "required" => true,
+                ),
+
+            ),
+        ),
+
+        /**
+         *    saveOrderCustomFields() method
+         *
+         *    reference: http://api-docs.brightpearl.com/order/order-customfields/patch.html
+         */
+        "saveOrderCustomFields" => array(
+            "httpMethod" => "PATCH",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order/{id}/custom-field",
+            "summary" => "Save order custom fields",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "order id",
+                    "required" => true,
+                ),
+                "body" => array(
+                    "type" => "string",
+                    "location" => "body",
+                    "description" => "body",
+                    "required" => true,
                 ),
             ),
         ),
