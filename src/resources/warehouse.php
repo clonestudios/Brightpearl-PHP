@@ -221,6 +221,65 @@ return array(
             ),
         ),
 
+
+        /**
+         *    getStockTransfer() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/stock-transfer/get.html
+         */
+        "getStockTransfer" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/stock-transfer/{id}",
+            "summary" => "Get stock transfer(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of the transfer to get",
+                    "required" => true,
+                ),
+            ),
+        ),
+
+
+        /**
+         *    releaseQuarantine() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/quarantine-release/post.html
+         */
+        "releaseQuarantine" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/warehouse/{id}/quarantine/release",
+            "summary" => "create Quarantine Release",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of the the warehouse",
+                    "required" => true,
+                ),
+                "productId" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "product id",
+                    "required" => true,
+                ),
+                "quantity" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "quantity",
+                    "required" => true,
+                ),
+                "toLocationId" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "to locaiton id",
+                    "required" => true,
+                ),
+            ),
+        ),
     ),
 
     /*

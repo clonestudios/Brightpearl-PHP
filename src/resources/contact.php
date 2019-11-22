@@ -21,7 +21,7 @@ return array(
          */
         "getContact" => array(
             "httpMethod" => "GET",
-            "uri" => "/{apiVersion}/{account_code}/contact-service/contact/{id}",
+            "uri" => "/{apiVersion}/{account_code}/contact-service/contact/{id}?includeOptional={includeOptional}",
             "summary" => "Retrieve Contact",
             "responseModel" => "defaultJsonResponse",
             "parameters" => array(
@@ -32,6 +32,13 @@ return array(
                     "description" => "Contact id",
                     "required" => true,
                 ),
+                "includeOptional" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "optional parameters",
+                    "required" => false,
+                ),
+
 
             ),
         ),
