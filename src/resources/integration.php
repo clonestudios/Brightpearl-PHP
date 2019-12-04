@@ -90,6 +90,13 @@ return array(
                     "required" => true,
                 ),
 
+                "qualityOfService" => array(
+                    "type" => "",
+                    "location" => "json",
+                    "description" => "Mime type of http body to use (xml, json, etc)",
+                    "required" => true,
+                ),
+
             ),
         ),
 
@@ -109,7 +116,7 @@ return array(
                     "type" => "integer",
                     "location" => "uri",
                     "description" => "Id of webhook to delete",
-                    "required" => true,
+                    "required" => false,
                 ),
 
             ),
