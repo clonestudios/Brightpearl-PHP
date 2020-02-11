@@ -129,6 +129,77 @@ channelId is optional.",
             ),
         ),
 
+        
+        /**
+         *    searchOrder() method
+         *
+         *    reference: https://www.brightpearl.com/developer/latest/order/order/search.html
+         */
+        "searchOrder" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order-search",
+            "summary" => "Retrieve order(s) (https://www.brightpearl.com/developer/latest/order/order/get.html)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+               
+                // filters
+
+                "customerRef" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "Order reference no.",
+                    "required" => false,
+                ),
+
+            ),
+        ),
+            
+        /**
+         *    searchCustomerPayments() method
+         *
+         *    reference: http://api-docs.brightpearl.com/accounting/customer-payment/search.html
+         */
+        "searchCustomerPayments" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/accounting-service/customer-payment-search",
+            "summary" => "Get custome payment(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "orderId" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "Id of the order",
+                    "required" => false,
+                ),
+
+            ),
+        ),
+            
+        /**
+         *    deleteCustomerPayment() method
+         *
+         *    reference: http://api-docs.brightpearl.com/accounting/customer-payment/delete.html
+         */
+        "deleteCustomerPayment" => array(
+            "httpMethod" => "DELETE",
+            "uri" => "/{apiVersion}/{account_code}/accounting-service/customer-payment/{id}",
+            "summary" => "delete custome payment",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of the payment",
+                    "required" => true,
+                ),
+
+            ),
+        ),
+
+
     ),
 
     /*

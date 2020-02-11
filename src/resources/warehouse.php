@@ -80,7 +80,6 @@ return array(
             ),
         ),
 
-
         /**
          *    getGoodsOutNote() method
          *
@@ -136,6 +135,35 @@ return array(
 
             ),
         ),
+        
+        /**
+         *    deleteGoodsOutNote() method
+         *
+         *    reference: http://api-docs.brightpearl.com/warehouse/goods-out-note/delete.html
+         */
+        "deleteGoodsOutNote" => array(
+            "httpMethod" => "DELETE",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/order/{order_id}/goods-note/goods-out/{id}",
+            "summary" => "delete goods out note",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "order_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of order to delete the goods notes",
+                    "required" => true,
+                ),
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of goods out to delete",
+                    "required" => true,
+                ),
+
+            ),
+        ),
+
         /**
          *    saveGoodsOutNoteEvent() method
          *
