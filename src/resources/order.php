@@ -41,7 +41,377 @@ return array(
 
             ),
         ),
+        
+        /**
+         *    postSalesOrder() method
+         *
+         *    reference: https://api-docs.brightpearl.com/order/sales-order/post.html
+         */
+        "postSalesOrder" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/order-service/sales-order/",
+            "summary" => "Create Sales order(s)",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
 
+                "customer" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "The customer id to assign the Order to.",
+                    "required" => true,
+                    "id" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "address" => array(
+                        "type" => "array",
+                        "location" => "json",
+                        "addressFullName" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "companyName" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine1" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine2" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine3" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine4" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "postalCode" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "countryId" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "countryIsoCode" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "telephone" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "mobileTelephone" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "email" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                    ),
+                ),
+                
+                "billing" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "The ID of the customer you wish to use as the billing contact for this order. If not specified the primary contact of the customers organisation will be used.",
+                    "required" => true,
+                    "contactId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "address" => array(
+                        "type" => "array",
+                        "location" => "json",
+                        "addressFullName" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "companyName" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine1" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine2" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine3" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine4" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "postalCode" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "countryId" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "countryIsoCode" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "telephone" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "mobileTelephone" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "email" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                    ),
+                ),
+                
+                "ref" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "The Customer reference you wish to assign to this order.",
+                    "required" => false,
+                ),
+                
+                "placedOn" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "The date this Order was placed on. If this is not specified todays date will be used. (ISO8601 format)",
+                    "required" => false,
+                ),
+                
+                "taxDate" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "The date this Order was placed on. If this is not specified todays date will be used. (ISO8601 format)",
+                    "required" => false,
+                ),
+                
+                "parentId" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "You can use parentId if you want to link your new order to an existing order in Brightpearl.",
+                    "required" => false,
+                ),
+                
+                "statusId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the status you wish to assign to this order. If no status ID is specified then the configured default is used.",
+                    "required" => false,
+                ),
+                
+                "warehouseId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the warehouse which will be used by default for fulfilment.",
+                    "required" => false,
+                ),
+                
+                "channelId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the channel you wish to assign this order to.",
+                    "required" => false,
+                ),
+                
+                "externalRef" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "The external reference you wish to assign to this order. When both externalRef and installedIntegrationInstanceId are provided they form a unique compound key. If another order is posted with the same combination it will be assumed to be a duplicate and result in a 200 response. No changes will be made to the order in this case.",
+                    "required" => false,
+                ),
+                
+                "installedIntegrationInstanceId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "See note above for externalRef.",
+                    "required" => false,
+                ),
+                
+                "staffOwnerId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the staff member who owns this order. If you do not specify this value then it will be set automatically if you have the auto assign property enabled in your sales settings.",
+                    "required" => false,
+                ),
+                
+                "projectId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the project you wish to assign this order to.",
+                    "required" => false,
+                ),
+                
+                "leadSourceId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the lead source you wish to assign this order to. If not specified the default for the customer is used.",
+                    "required" => false,
+                ),
+                
+                "teamId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the team you wish to assign this order to.",
+                    "required" => false,
+                ),
+                
+                "priceListId" => array(
+                    "type" => "integer",
+                    "location" => "json",
+                    "description" => "The ID of the price list you wish to use for this order. If no price list ID is provided the customer's assigned price list is used.",
+                    "required" => false,
+                ),
+                
+                "priceModeCode" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "INC or EXC. Allows you to override the price list's price mode.",
+                    "required" => false,
+                ),
+                
+                "currency" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "The currency you wish to set this Order to be.",
+                    "required" => false,
+                    "code" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "fixedExchangeRate" => array(
+                        "type" => "boolean",
+                        "location" => "json",
+                    ),
+                    "exchangeRate" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                ),
+                
+                "delivery" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "The date you wish to have the Order delivered On.",
+                    "required" => false,
+                    "date" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "address" => array(
+                        "type" => "array",
+                        "location" => "json",
+                        "addressFullName" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "companyName" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine1" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine2" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine3" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "addressLine4" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "postalCode" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "countryId" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "countryIsoCode" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "telephone" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "mobileTelephone" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                        "email" => array(
+                            "type" => "string",
+                            "location" => "json",
+                        ),
+                    ),
+                     "shippingMethodId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                ),
+                
+                "rows" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "An array of order rows associated with this order.",
+                    "required" => false,
+                    "productId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "name" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "quantity" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "taxCode" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "net" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "tax" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "nominalCode" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
+                    "sequence" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                ),
+            ),
+        ),
+        
         /**
          *    postOrder() method
          *
