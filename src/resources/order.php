@@ -121,7 +121,7 @@ return array(
                     "type" => "array",
                     "location" => "json",
                     "description" => "The ID of the customer you wish to use as the billing contact for this order. If not specified the primary contact of the customers organisation will be used.",
-                    "required" => true,
+                    "required" => false,
                     "contactId" => array(
                         "type" => "integer",
                         "location" => "json",
