@@ -933,7 +933,7 @@ return array(
                     "required" => false,
                 ),
                 "isPublic" => array(
-                    "type" => "string",
+                    "type" => "boolean",
                     "location" => "json",
                     "description" => "is public",
                     "required" => false,
