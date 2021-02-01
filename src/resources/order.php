@@ -858,7 +858,29 @@ return array(
                 ),
             ),
         ),
-
+        
+        /**
+         *    getOrderStatus() method
+         *
+         *    reference: https://api-docs.brightpearl.com/order/order-status/get.html
+         */
+        "getOrderStatus" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/order-service/order-status/{id}",
+            "summary" => "Returns details about order statuses grouped by orderTypeCode sorted by sortOrder ascending.",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Address id or id set/range",
+                    "required" => true,
+                ),
+                
+            ),
+        ),
+        
         /**
          *    saveOrderStatus() method
          *
