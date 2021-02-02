@@ -337,6 +337,13 @@ return array(
             "summary" => "Search products",
             "responseModel" => "defaultJsonResponse",
             "parameters" => array(
+                
+                "productId" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "Product id(s) you are searching for",
+                    "required" => false,
+                ),
 
                 "channelId" => array(
                     "type" => "integer",
@@ -344,6 +351,7 @@ return array(
                     "description" => "This is the name of the Brightpearl Sales Channel(s) you're looking for",
                     "required" => false,
                 ),
+                
                 "SKU" => array(
                     "type" => "string",
                     "location" => "query",
