@@ -57,6 +57,28 @@ return array(
 
             ),
         ),
+        
+        /**
+         *    getBundleAvailability() method
+         *
+         *    reference: https://api-docs.brightpearl.com/warehouse/bundle-availability/get.html
+         */
+        "getBundleAvailability" => array(
+            "httpMethod" => "GET",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/bundle-availability/{id}",
+            "summary" => "Returns the bundle availability for a given bundle product ID.",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of bundle to get",
+                    "required" => true,
+                ),
+
+            ),
+        ),
 
         /**
          *    getWarehouseDefaultLocation() method
