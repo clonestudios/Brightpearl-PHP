@@ -141,42 +141,42 @@ return array(
                     "required" => true,
                 ),
                 
-                "${account-code}" => array(
+                "\${account-code}" => array(
                     "type" => "string",
                     "location" => "json",
                     "description" => "The account code of the brightpearl account.",
                     "required" => false,
                 ),
                 
-                "${resource-type}" => array(
+                "\${resource-type}" => array(
                     "type" => "string",
                     "location" => "json",
                     "description" => "The name of the resource. i.e. product.",
                     "required" => false,
                 ),
                 
-                "${resource-id}" => array(
+                "\${resource-id}" => array(
                     "type" => "string",
                     "location" => "json",
                     "description" => "An id set of all the effected resources.",
                     "required" => false,
                 ),
                 
-                "${lifecycle-event}" => array(
+                "\${lifecycle-event}" => array(
                     "type" => "string",
                     "location" => "json",
                     "description" => "The lifecycle event such as Created.",
                     "required" => false,
                 ),
                 
-                "${resource-specifier}" => array(
+                "\${resource-specifier}" => array(
                     "type" => "string",
                     "location" => "json",
                     "description" => "The specifier for this resource.",
                     "required" => false,
                 ),
                 
-                "${raised-on}" => array(
+                "\${raised-on}" => array(
                     "type" => "string",
                     "location" => "json",
                     "description" => "Iso 8601 date time formatted time of when this event occurred.",
