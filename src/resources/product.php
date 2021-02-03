@@ -419,10 +419,60 @@ return array(
                 "id" => array(
                     "type" => "string",
                     "location" => "uri",
-                    "description" => "This is the id of the product(s)",
+                    "description" => "This is the id of the pricelist(s)",
                     "required" => true,
                 ),
 
+            ),
+        ),
+        
+        /**
+         *    saveProductPrice() method
+         *
+         *    reference: https://api-docs.brightpearl.com/product/product-price/put.html
+         */
+        "saveProductPrice" => array(
+            "httpMethod" => "PUT",
+            "uri" => "/{apiVersion}/{account_code}/product-service/product-price/{product_id}/price-list",
+            "summary" => "Update prices on different price lists for a product.",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "product_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "This is the id of the product",
+                    "required" => true,
+                ),
+                
+                "priceLists" => array(
+
+                    "type" => "array",
+                    "location" => "json",
+                    "description" => "An array of price list objects to be updated on this product.",
+                    "required" => true,
+                    
+                    "priceListId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                        "description" => "ID of the price list to be updated",
+                        "required" => true,
+                    ),
+                    
+                    "quantityPrice" => array(
+                        "type" => "array",
+                        "location" => "json",
+                        "required" => true,
+                    ),
+                    
+                    "sku" => array(
+                        "type" => "string",
+                        "location" => "json",
+                        "description" => "The product's SKU for this price list",
+                        "required" => false,
+                    ),
+                ),
+				
             ),
         ),
 
