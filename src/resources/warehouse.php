@@ -337,43 +337,81 @@ return array(
          *    reference: https://api-docs.brightpearl.com/warehouse/reservation/post.html
          */
         "reserveStock" => array(
-			"httpMethod" => "POST",
-			"uri" => "/{apiVersion}/{account_code}/warehouse-service/order/{order_id}/reservation/warehouse/{id}",
-			"summary" => "Reserve/allocate products on a sales order",
-			"responseModel" => "defaultJsonResponse",
-			"parameters" => array(
+            "httpMethod" => "PUT",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/order/{order_id}/reservation",
+            "summary" => "Reserve/allocate products on a sales order",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
 
-				"order_id" => array(
-					"type" => "string",
-					"location" => "uri",
-					"description" => "Id of sales order",
-					"required" => true,
-				),
-				"id" => array(
-					"type" => "string",
-					"location" => "uri",
-					"description" => "Id of warehouse",
-					"required" => false,
-				),
-				"products" => array(
-					"type" => "array",
-					"location" => "json",
-					"productId" => array(
-						"type" => "integer",
-						"location" => "json",
-					),
-					"salesOrderRowId" => array(
-						"type" => "integer",
-						"location" => "json",
-					),
-					"quantity" => array(
-						"type" => "integer",
-						"location" => "json",
-					),
-				),
+                "order_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of sales order",
+                    "required" => true,
+                ),
+                "products" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "productId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "salesOrderRowId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "quantity" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                ),
 
-			),
-		),
+            ),
+        ),
+        
+        /**
+         *    reserveStockWarehouse() method
+         *
+         *    reference: https://api-docs.brightpearl.com/warehouse/reservation/post.html
+         */
+        "reserveStockWarehouse" => array(
+            "httpMethod" => "POST",
+            "uri" => "/{apiVersion}/{account_code}/warehouse-service/order/{order_id}/reservation/warehouse/{id}",
+            "summary" => "Reserve/allocate products on a sales order from specific warehouse",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "order_id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of sales order",
+                    "required" => true,
+                ),
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Id of warehouse",
+                    "required" => false,
+                ),
+                "products" => array(
+                    "type" => "array",
+                    "location" => "json",
+                    "productId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "salesOrderRowId" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                    "quantity" => array(
+                        "type" => "integer",
+                        "location" => "json",
+                    ),
+                ),
+
+            ),
+        ),
     ),
 
     /*
