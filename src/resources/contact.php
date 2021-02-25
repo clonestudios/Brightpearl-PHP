@@ -482,6 +482,74 @@ return array(
 
             ),
         ),
+        
+        /**
+         *    updateContactAddress() method
+         *
+         *    reference: https://api-docs.brightpearl.com/contact/postal-address/put.html
+         */
+        "updateContactAddress" => array(
+            "httpMethod" => "PUT",
+            "uri" => "/{apiVersion}/{account_code}/contact-service/postal-address/{id}",
+            "summary" => "Update Contact Address",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Address id",
+                    "required" => true,
+                ),
+
+                "addressLine1" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "First address line",
+                    "required" => true,
+                ),
+
+                "addressLine2" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "required" => false,
+                ),
+
+                "addressLine3" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "required" => false,
+                ),
+
+                "addressLine4" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "required" => false,
+                ),
+
+                "postalCode" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "Postal Code",
+                    "required" => false,
+                ),
+
+                "countryIsoCode" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "Specify the ISO code of the country for this address.",
+                    "required" => false,
+                ),
+
+                "countryId" => array(
+                    "type" => "string",
+                    "location" => "json",
+                    "description" => "Specify the Id of the country this address.",
+                    "required" => false,
+                ),
+
+            ),
+        ),
 
     ),
 
