@@ -273,6 +273,56 @@ return array(
 
             ),
         ),
+        
+        /**
+         *    updateContact() method
+         *
+         *    reference: https://api-docs.brightpearl.com/contact/contact/patch.html
+         */
+        "updateContact" => array(
+            "httpMethod" => "PATCH",
+            "uri" => "/{apiVersion}/{account_code}/contact-service/contact/{id}",
+            "summary" => "Update Contact Details",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+
+                "id" => array(
+                    "type" => "string",
+                    "location" => "uri",
+                    "description" => "Contact id",
+                    "required" => true,
+                ),
+                
+                array(
+                    "type" => "array",
+                    "location" => "json",
+                    "required" => true,
+                    
+                    "op" => array(
+                        "type" => "string",
+                        "location" => "json",
+                        "description" => "Operation",
+                        "required" => false,
+                    ),
+                    "from" => array(
+                        "type" => "string",
+                        "location" => "json",
+                        "required" => false,
+                    ),
+                    "path" => array(
+                        "type" => "string",
+                        "location" => "json",
+                        "required" => false,
+                    ),
+                    "value" => array(
+                        "type" => "string",
+                        "location" => "json",
+                        "required" => false,
+                    ),
+                )
+                
+            ),
+        ),
 
         /**
          *    getContactSearch() method
