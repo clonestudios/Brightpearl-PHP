@@ -250,6 +250,10 @@ return array(
                         "type" => "string",
                         "location" => "json",
                     ),
+                    "nominalCode" => array(
+                        "type" => "string",
+                        "location" => "json",
+                    ),
                 ),
 
                 "assignment" => array(
