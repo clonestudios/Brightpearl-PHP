@@ -753,109 +753,227 @@ return array(
         ),
 
         /**
-         *    searchOrder() method
+         *    getOrderSearch() method
          *
-         *    reference: https://www.brightpearl.com/developer/latest/order/order/search.html
+         *    reference: https://api-docs.brightpearl.com/order/order/search.html
          */
-        "searchOrder" => array(
+        "getOrderSearch" => array(
             "httpMethod" => "GET",
             "uri" => "/{apiVersion}/{account_code}/order-service/order-search",
-            "summary" => "Retrieve order(s) (https://www.brightpearl.com/developer/latest/order/order/get.html)",
+            "summary" => "Search orders",
             "responseModel" => "defaultJsonResponse",
             "parameters" => array(
-
-                "columns" => array(
-                    "type" => "array",
-                    "location" => "query",
-                    "description" => "You may control the set of columns that are included in the results and the order in which they are presented. You may use the columns parameters and provide a comma separated list of column names. e.g. /contact-search?columns=contactId,firstName",
-                    "required" => false,
-                ),
-
-                "sort" => array(
+                
+                "orderId" => array(
                     "type" => "string",
                     "location" => "query",
-                    "description" => "When you execute a resource, you may change the default sort order by setting a query parameter sort. The value of this parameter is a comma delimited list of 1-n column names with an optional sort direction separated by a pipe. e.g. /goods-out-note-search?sort=warehouseId,price|DESC",
+                    "description" => "Order id",
                     "required" => false,
                 ),
-
-                "pageSize" => array(
+                
+                "orderTypeId" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The id of the order type",
+                    "required" => false,
+                ),
+                
+                "contactId" => array(
                     "type" => "integer",
                     "location" => "query",
-                    "description" => "",
+                    "description" => "The id of the contact",
                     "required" => false,
                 ),
-
-                "firstResult" => array(
+                
+                "orderStatusId" => array(
                     "type" => "integer",
                     "location" => "query",
-                    "description" => "",
+                    "description" => "The id of the order status",
                     "required" => false,
                 ),
-
-                // filters
-
+                
+                "orderStockStatusId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The id of the order stock status",
+                    "required" => false,
+                ),
+                
+                "createdOn" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The date the order was created",
+                    "required" => false,
+                ),
+                
+                "createdById" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The id of the staff member who created this order",
+                    "required" => false,
+                ),
+                
                 "customerRef" => array(
                     "type" => "string",
                     "location" => "query",
-                    "description" => "Order reference no.",
+                    "description" => "The customer reference for the order",
                     "required" => false,
                 ),
-
-                "placedOn" => array(
-                    "type" => "string",
-                    "location" => "query",
-                    "description" => "The date the order was placed.",
-                    "required" => false,
-                ),
-
-                "deliveryDate" => array(
-                    "type" => "string",
-                    "location" => "query",
-                    "description" => "The date the delivery is set for.",
-                    "required" => false,
-                ),
-
-                "shippingMethodId" => array(
+                
+                "orderPaymentStatusId" => array(
                     "type" => "integer",
                     "location" => "query",
-                    "description" => "The ID of the Shipping Method.",
+                    "description" => "The payment status id of the order",
                     "required" => false,
                 ),
-
+                
+                "updatedOn" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The date the order was updated",
+                    "required" => false,
+                ),
+                
+                "parentOrderId" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The id of the order's parent",
+                    "required" => false,
+                ),
+                
+                "orderShippingStatusId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The shipping status id of the order",
+                    "required" => false,
+                ),
+                
+                "externalRef" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The external reference for the order",
+                    "required" => false,
+                ),
+                
+                "installedIntegrationInstanceId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The integration instance this order is associated with",
+                    "required" => false,
+                ),
+                
+                "warehouseId" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The id of the warehouse",
+                    "required" => false,
+                ),
+                
                 "staffOwnerContactId" => array(
                     "type" => "integer",
                     "location" => "query",
-                    "description" => "The ID of the Staff member who owns the Order.",
+                    "description" => "The id of the staff member who is assigned to the order",
                     "required" => false,
                 ),
-
-                "projectId" => array(
-                    "type" => "integer",
+                
+                "taxDate" => array(
+                    "type" => "string",
                     "location" => "query",
-                    "description" => "The ID of the project the Order is associated with.",
+                    "description" => "The tax date of the order",
                     "required" => false,
                 ),
-
+                
                 "departmentId" => array(
                     "type" => "integer",
                     "location" => "query",
-                    "description" => "The ID of the department the Order is associated with.",
+                    "description" => "The id of the department the order is associated with",
                     "required" => false,
                 ),
-
+                
+                "deliveryDate" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The date the delivery is set for",
+                    "required" => false,
+                ),
+                
+                "placedOn" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The date the order was placed",
+                    "required" => false,
+                ),
+                
+                "shippingMethodId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The id of the shipping method",
+                    "required" => false,
+                ),
+                
+                "projectId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "Theid of the project the order is associated with",
+                    "required" => false,
+                ),
+                
+                "channelTypeId" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The id of the channel type",
+                    "required" => false,
+                ),
+                
                 "leadSourceId" => array(
                     "type" => "integer",
                     "location" => "query",
-                    "description" => "The ID of the lead source the Order is associated with.",
+                    "description" => "The id of the lead source the order is associated with",
                     "required" => false,
                 ),
-
+                
                 "isClone" => array(
                     "type" => "boolean",
                     "location" => "query",
-                    "description" => "Whether the order is a clone or not.",
+                    "description" => "Whether the order is a clone or not",
                     "required" => false,
                 ),
+                
+                "externalRefs" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The external reference for the order. This is the same as the externalRef column, except it allows you to search for multiple external references simultaneously",
+                    "required" => false,
+                ),
+                
+                "isClosed" => array(
+                    "type" => "boolean",
+                    "location" => "query",
+                    "description" => "Whether the order is invoiced or not",
+                    "required" => false,
+                ),
+                
+                "externalRefSearchString" => array(
+                    "type" => "string",
+                    "location" => "query",
+                    "description" => "The external reference for the order. This is the same as the externalRef column, except the data type is SEARCH_STRING, allowing you to match external references by case-insensitive substrings",
+                    "required" => false,
+                ),
+                
+                "stockAllocationId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The stock allocation status id of the order",
+                    "required" => false,
+                ),
+                
+                "orderShippingStatusId" => array(
+                    "type" => "integer",
+                    "location" => "query",
+                    "description" => "The shipping status id of the order",
+                    "required" => false,
+                ),
+
             ),
         ),
         
